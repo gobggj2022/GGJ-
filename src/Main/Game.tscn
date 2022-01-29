@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=2]
-[ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Menu/MainMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/tmpBg.png" type="Texture" id=5]
 [ext_resource path="res://src/Menu/PauseMenu.tscn" type="PackedScene" id=6]
@@ -13,12 +12,6 @@ script = ExtResource( 2 )
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
 pause_mode = 1
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-pause_mode = 1
-position = Vector2( 74, 100 )
-scale = Vector2( 0.0799975, 0.0799975 )
-motion/sync_to_physics = false
 
 [node name="TmpBg" type="Sprite" parent="."]
 pause_mode = 1
