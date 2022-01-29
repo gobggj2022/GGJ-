@@ -17,6 +17,7 @@ pause_mode = 1
 [node name="Player" parent="." instance=ExtResource( 3 )]
 pause_mode = 1
 position = Vector2( 51, 339 )
+motion/sync_to_physics = false
 
 [node name="TmpBg" type="Sprite" parent="."]
 pause_mode = 1
@@ -24,8 +25,6 @@ visible = false
 position = Vector2( 512, 301.375 )
 scale = Vector2( 0.533333, 0.553009 )
 texture = ExtResource( 5 )
-
-[node name="Interface" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" parent="Interface" instance=ExtResource( 4 )]
 
