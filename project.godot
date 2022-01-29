@@ -8,9 +8,20 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Camera2D",
+"class": "GameCamera",
+"language": "GDScript",
+"path": "res://src/GameCamera.gd"
+} ]
+_global_script_class_icons={
+"GameCamera": ""
+}
+
 [application]
 
 config/name="GGJ2022"
+run/main_scene="res://src/Main/Game.tscn"
 config/icon="res://icon.png"
 
 [physics]
