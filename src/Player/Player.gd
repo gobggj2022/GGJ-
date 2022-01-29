@@ -9,11 +9,8 @@ var jumping = false
 
 func get_input():
 	velocity.x = 0
-	var horizontal = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 
 	var jump = Input.is_action_just_pressed('ui_select')
-
-	velocity.x += horizontal.x
 
 	if jump and is_on_floor():
 		jumping = true
