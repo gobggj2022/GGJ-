@@ -16,7 +16,7 @@ pause_mode = 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 pause_mode = 1
-position = Vector2( 74, 296 )
+position = Vector2( 74, 100 )
 scale = Vector2( 0.0799975, 0.0799975 )
 motion/sync_to_physics = false
 
