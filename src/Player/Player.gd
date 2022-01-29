@@ -22,14 +22,9 @@ func change_state(new_state):
 
 func get_input():
 	velocity.x = 0
-<<<<<<< HEAD
-
-	var jump = Input.is_action_just_pressed('ui_select')
-=======
 	var jump = Input.is_action_just_pressed('ui_up')
 	var right = Input.is_action_pressed('ui_right')
 	var left = Input.is_action_pressed('ui_left')
->>>>>>> 1571aae4f78529b6939d8266a965f397e2c8c5d7
 
 	if jump and is_on_floor():
 		change_state(JUMP)
