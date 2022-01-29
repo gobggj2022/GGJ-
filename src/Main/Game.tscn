@@ -16,7 +16,8 @@ pause_mode = 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 pause_mode = 1
-position = Vector2( 51, 339 )
+position = Vector2( 74, 296 )
+scale = Vector2( 0.0799975, 0.0799975 )
 motion/sync_to_physics = false
 
 [node name="TmpBg" type="Sprite" parent="."]
