@@ -68,6 +68,7 @@ window/stretch/aspect="keep"
 [global]
 
 viewport=false
+Window=false
 
 [input]
 

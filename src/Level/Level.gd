@@ -17,10 +17,14 @@ onready var tween = $Tween
 func _ready():
 	gameManager.connect('side_switch', self, '_on_side_update')
 
-var playerArrivedSecondSocle = false
-var playerReturnedFirstSocle = false
+var playerArrivedSecondSocle = false # Go trip
+var playerReturnedFirstSocle = false # Back trip
 
 func _on_ArriveeBlanc_player_enter():
+	if playerArrivedSecondSocle:
+		return
+
+	playerArrivedSecondSocle = true
 	get_node('/root/GameManager').turnDark()
 
 	player.saveRecord()
@@ -35,12 +39,14 @@ func _on_ArriveeBlanc_player_leave():
 	ghostPlayer.can_get_recording = true
 
 func _on_ArriveeBlanc_ghost_enter():
-	pass
+	player.die()
 
 
 func _on_DepartBlanc_player_leave():
 	player.can_record = true
 
+func _on_DepartBlanc_ghost_enter():
+	pass # Replace with function body.
 
 func _on_side_update(isDark):
 	var enteringMusic = musicReverse if isDark else musicNormal
