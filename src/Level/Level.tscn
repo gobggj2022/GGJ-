@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Level/SocleDepart.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Platform/Sol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Platform/LongPlatform.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Level/Socle.gd" type="Script" id=6]
 [ext_resource path="res://assets/bg/Illustration_sans_titre 4.png" type="Texture" id=7]
 [ext_resource path="res://assets/bg/Fond 1.png" type="Texture" id=8]
 [ext_resource path="res://assets/bg/Plafond 1.png" type="Texture" id=9]
@@ -95,7 +94,6 @@ scale = Vector2( 1.12, 1.12 )
 [node name="ArriveeBlanc" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1617.41, 525.257 )
 scale = Vector2( 0.28, 0.28 )
-script = ExtResource( 6 )
 
 [node name="Trap" parent="." instance=ExtResource( 13 )]
 position = Vector2( 576.332, 526.651 )
