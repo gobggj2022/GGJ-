@@ -7,10 +7,17 @@ export (int) var dash_speed = 1000
 export (int) var dash_time = 0.01 # in seconds
 export (int) var gravity = 1200
 
-onready var sprite = $AnimatedSprite
+onready var redSprite = $SpriteRed
+onready var blueSprite = $SpriteBlue
 onready var dashTimer: Timer = $DashTimer
 onready var sneakHitbox: CollisionShape2D = get_node("SneakCollisionShape2D")
 onready var normalHitbox: CollisionShape2D = get_node("CollisionShape2D")
+onready var sideManager = get_node("/root/SideManager")
+onready var tween = $Tween
+
+onready var sprite = blueSprite
+
+const transitionDuration = 0.2
 
 enum {IDLE, RUN, JUMP, DASH, SNEAK, DEAD}
 var velocity = Vector2()
@@ -24,6 +31,21 @@ var save_data = {"0": ["nothing",Vector2(0,0),false]}
 
 func _ready():
 	sprite.play('idle')
+	redSprite.modulate.a = 0.0
+	sideManager.connect('side_switch', self, '_on_side_update')
+
+func _on_side_update(isDark):
+	var enteringSprite = redSprite if isDark else blueSprite
+	var leavingSprite = blueSprite if isDark else redSprite
+
+	tween.interpolate_property(enteringSprite, "modulate:a", 0.0, 1.0,
+			transitionDuration, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	tween.interpolate_property(leavingSprite, "modulate:a", 1.0, 0.0,
+			transitionDuration, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	tween.start()
+
+	sprite = enteringSprite
+	
 
 func saveRecord():
 	var f := File.new()
@@ -35,7 +57,8 @@ func saveRecord():
 
 func do_record():
 	count += 1
-	save_data[String(count)] = [sprite.current_animation,global_position, sprite.flip_h]
+	print_debug(sprite)
+	save_data[String(count)] = [sprite.animation ,global_position, sprite.flip_h]
 
 func change_state(new_state):
 	if new_state != SNEAK:
