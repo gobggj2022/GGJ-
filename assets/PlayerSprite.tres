@@ -22,10 +22,15 @@
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "jump",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 19 ) ],
 "loop": true,
-"name": "run",
-"speed": 9.0
+"name": "dash",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
@@ -37,18 +42,13 @@ animations = [ {
 "name": "death",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 18 ) ],
-"loop": false,
-"name": "jump",
-"speed": 8.0
+"frames": [ ExtResource( 10 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "run",
+"speed": 9.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
 "speed": 4.0
-}, {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "dash",
-"speed": 5.0
 } ]
