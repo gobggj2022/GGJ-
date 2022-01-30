@@ -11,8 +11,8 @@ onready var redSprite = $SpriteRed
 onready var blueSprite = $SpriteBlue
 onready var dashTimer: Timer = $DashTimer
 onready var sneakHitbox: CollisionShape2D = get_node("SneakCollisionShape2D")
-onready var normalHitbox: CollisionShape2D = get_node("CollisionShape2D")
-onready var sideManager = get_node("/root/SideManager")
+onready var normalHitbox: CollisionPolygon2D = get_node("CollisionPolygon2D")
+onready var gameManager = get_node("/root/GameManager")
 onready var tween = $Tween
 
 onready var sprite = blueSprite
@@ -33,7 +33,7 @@ var save_data = {"0": ["nothing",Vector2(0,0),false]}
 func _ready():
 	sprite.play('idle')
 	redSprite.modulate.a = 0.0
-	sideManager.connect('side_switch', self, '_on_side_update')
+	gameManager.connect('side_switch', self, '_on_side_update')
 
 func _on_side_update(isDark):
 	var enteringSprite = redSprite if isDark else blueSprite

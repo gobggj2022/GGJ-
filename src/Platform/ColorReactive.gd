@@ -1,20 +1,21 @@
-class_name Platform
-extends StaticBody2D
+class_name ColorReactive
+extends Node
 
 onready var clearSprite = $ClearSprite
 onready var darkSprite = $DarkSprite
 onready var tween = $Tween
 
-onready var sideManager = get_node("/root/SideManager")
+onready var gameManager = get_node("/root/GameManager")
 
 const transitionDuration = 0.2
 
 func _ready():
 	darkSprite.modulate.a = 0
-	sideManager.connect('side_switch', self, '_on_side_update')
+	gameManager.connect('side_switch', self, '_on_side_update')
 
 
 func _on_side_update(isDark):
+	print_debug(self)
 	var enteringSprite = darkSprite if isDark else clearSprite
 	var leavingSprite = clearSprite if isDark else darkSprite
 

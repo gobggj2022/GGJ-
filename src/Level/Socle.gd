@@ -1,5 +1,5 @@
 class_name Socle
-extends Platform
+extends ColorReactive
 
 signal player_enter()
 signal player_leave()

@@ -1,11 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/PlayerSpriteRed.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/PlayerSpriteBlue.tres" type="SpriteFrames" id=3]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 299, 600 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 300, 300 )
@@ -17,9 +14,9 @@ script = ExtResource( 2 )
 run_speed = 150
 jump_speed = -600
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 40, -18 )
-shape = SubResource( 1 )
+polygon = PoolVector2Array( -304, 598, 276, 610, 283, -174, 57, -526, -287, -156 )
 
 [node name="SneakCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 40, 275 )

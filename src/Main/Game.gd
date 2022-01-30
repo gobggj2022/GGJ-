@@ -7,6 +7,9 @@ extends Node
 onready var _mainMenu = $Interface/MainMenu
 onready var _pauseMenu = $Interface/PauseMenu
 
+var isDark = false
+
+signal side_switch(isDark)
 
 func restartCurrentLevel():
 	$Level.get_tree().reload_current_scene()
@@ -32,3 +35,21 @@ func _unhandled_input(event):
 
 func _on_PauseMenu_restart_level():
 	restartCurrentLevel()
+
+func turnDark():
+	if (!isDark):
+		isDark = true
+		_updateStatus()
+
+func turnClear():
+	if (isDark):
+		isDark = false
+		_updateStatus()
+
+func toggle():
+	if (isDark):
+		isDark = !isDark
+		_updateStatus()
+
+func _updateStatus():
+	emit_signal('side_switch', isDark)
