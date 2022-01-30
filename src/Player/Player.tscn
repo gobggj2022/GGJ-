@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/PlayerSpriteRed.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/PlayerSpriteBlue.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/audio/gameover.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 300, 300 )
@@ -40,5 +41,8 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="DeadEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]

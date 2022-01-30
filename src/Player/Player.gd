@@ -15,6 +15,8 @@ onready var normalHitbox: CollisionPolygon2D = get_node("CollisionPolygon2D")
 onready var gameManager = get_node("/root/GameManager")
 onready var tween = $Tween
 
+onready var deadEffect = $DeadEffect
+
 onready var sprite = blueSprite
 signal player_died()
 
@@ -27,6 +29,8 @@ var anim: String
 var new_anim: String
 var can_dash = true
 var can_record = false
+
+var is_game_over = false
 
 var count = 0
 #Our dictionary we store values too
@@ -140,12 +144,11 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.name == "GhostPlayer":
+		if not is_game_over and (collision.collider.name == "GhostPlayer" or collision.collider.name == "Trap"):
 			change_state(DEAD)
 			emit_signal("player_died")
-		if collision.collider.name == "Trap":
-			change_state(DEAD)
-			emit_signal("player_died")
+			deadEffect.play()
+			is_game_over = true
 
 func dash():
 	change_state(DASH)
