@@ -18,8 +18,24 @@ var state: int
 var anim: String
 var new_anim: String
 
+var count = 0
+#Our dictionary we store values too
+var save_data = {"0": ["nothing",Vector2(0,0),false]}
+
 func _ready():
 	sprite.play('idle')
+
+func saveRecord():
+	var f := File.new()
+	f.open("res://record.json", File.WRITE)
+	prints("Saving to", f.get_path_absolute())
+	f.store_string(JSON.print(save_data))
+	print(JSON.print(save_data))
+	f.close()
+
+func do_record():
+	count += 1
+	save_data[String(count)] = [sprite.current_animation,global_position, sprite.flip_h]
 
 func change_state(new_state):
 	if new_state != SNEAK:
@@ -82,6 +98,8 @@ func get_input():
 		sprite.flip_h = false
 
 func _physics_process(delta):
+	do_record() # TODO : Trigger when player leave start platform
+				# TODO : saveRecord() when arrive to target platform
 	get_input()
 	velocity.y += gravity * delta
 	if state == JUMP and is_on_floor() and velocity.y > 0:
