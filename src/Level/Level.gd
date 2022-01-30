@@ -17,6 +17,9 @@ onready var tween = $Tween
 func _ready():
 	gameManager.connect('side_switch', self, '_on_side_update')
 
+var playerArrivedSecondSocle = false
+var playerReturnedFirstSocle = false
+
 func _on_ArriveeBlanc_player_enter():
 	get_node('/root/GameManager').turnDark()
 
