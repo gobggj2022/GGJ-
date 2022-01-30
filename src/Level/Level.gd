@@ -7,7 +7,6 @@ onready var player: Player = $Player
 
 func _on_ArriveeBlanc_player_enter():
 	get_node('/root/GameManager').turnDark()
-	print("gello")
 
 	player.saveRecord()
 	player.can_record = false
@@ -24,3 +23,6 @@ func _on_ArriveeBlanc_player_leave():
 func _on_DepartBlanc_player_leave():
 	player.can_record = true
 
+
+func _on_Player_player_died():
+	pass # Replace with function body.

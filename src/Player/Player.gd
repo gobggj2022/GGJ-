@@ -16,6 +16,7 @@ onready var gameManager = get_node("/root/GameManager")
 onready var tween = $Tween
 
 onready var sprite = blueSprite
+signal player_died()
 
 const transitionDuration = 0.2
 
@@ -85,6 +86,9 @@ func change_state(new_state):
 
 func get_input():
 	velocity.x = 0
+	if state == DEAD:
+		return
+
 	var jump = Input.is_action_just_pressed('ui_up')
 	var dash = Input.is_action_just_pressed('ui_select') or dashTimer.time_left != 0
 	var right = Input.is_action_pressed('ui_right')
@@ -134,6 +138,11 @@ func _physics_process(delta):
 		can_dash = true
 		change_state(IDLE)
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.name == "GhostPlayer" || "Trap":
+			change_state(DEAD)
+			emit_signal("player_died")
 
 func dash():
 	change_state(DASH)
