@@ -25,6 +25,7 @@ var state: int
 var anim: String
 var new_anim: String
 var can_dash = true
+var can_record = false
 
 var count = 0
 #Our dictionary we store values too
@@ -125,8 +126,9 @@ func get_input():
 		sprite.flip_h = false
 
 func _physics_process(delta):
-	do_record() # TODO : Trigger when player leave start platform
-				# TODO : saveRecord() when arrive to target platform
+	if can_record:
+		do_record()
+	
 	get_input()
 	velocity.y += gravity * delta
 	if state == JUMP and is_on_floor() and velocity.y > 0:

@@ -1,9 +1,12 @@
+class_name GhostPlayer
 extends KinematicBody2D
 
 onready var sprite = $AnimatedSprite
 
 var load_data : Dictionary = Dictionary()
 var count = 0
+
+var can_get_recording = false
 
 func _ready():
 	load_data = load_file()
@@ -17,16 +20,23 @@ func load_file():
 		f.close()
 		return result.result as Dictionary
 	return Dictionary()
+
 	
 func _physics_process(_delta):
-	get_recording()
-	pass
+	if can_get_recording:
+		get_recording()
 	
+func loadFirstPosition():
+	var test = load_data.get(String(count + 1))
+	if(test != null):
+		global_position = str2var("Vector2" + test[1])
+		sprite.flip_h = test[2]
+
+
 func get_recording():
 	count += 1
 	var test = load_data.get(String(count))
 	if(test != null):
-		print(test[1])
 		sprite.play(test[0])
 		global_position = str2var("Vector2" + test[1])
 		sprite.flip_h = test[2]
@@ -35,7 +45,7 @@ func get_recording():
 func _on_door_passed():
 	pass
 
-	
+
 # DEPRECATED
 var reverse_count = -1;
 

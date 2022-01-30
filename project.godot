@@ -9,15 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "ColorReactive",
-"language": "GDScript",
-"path": "res://src/Platform/ColorReactive.gd"
-}, {
 "base": "Camera2D",
 "class": "GameCamera",
 "language": "GDScript",
 "path": "res://src/GameCamera.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "GhostPlayer",
+"language": "GDScript",
+"path": "res://src/Player/GhostPlayer.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Platform",
+"language": "GDScript",
+"path": "res://src/Platform/Platform.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -30,8 +35,9 @@ _global_script_classes=[ {
 "path": "res://src/Level/Socle.gd"
 } ]
 _global_script_class_icons={
-"ColorReactive": "",
 "GameCamera": "",
+"GhostPlayer": "",
+"Platform": "",
 "Player": "",
 "Socle": ""
 }
@@ -44,7 +50,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameManager="*res://src/Main/Game.gd"
+SideManager="*res://src/Main/SideManager.gd"
 
 [display]
 
