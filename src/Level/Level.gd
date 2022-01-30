@@ -1,5 +1,8 @@
 extends Node2D
 
+signal game_over()
+signal game_win()
+
 var ghostPlayerNode = preload("res://src/Player/GhostPlayer.tscn")
 var ghostPlayer: GhostPlayer
 
@@ -43,9 +46,6 @@ func _on_ArriveeBlanc_player_leave():
 func _on_DepartBlanc_player_leave():
 	player.can_record = true
 
-func _on_DepartBlanc_ghost_enter():
-	pass # Replace with function body.
-
 func _on_side_update(isDark):
 	var enteringMusic = musicReverse if isDark else musicNormal
 	var leavingMusic = musicNormal if isDark else musicReverse
@@ -62,7 +62,14 @@ func _on_side_update(isDark):
 
 	tween.start()
 func _on_Player_player_died():
-	pass # Replace with function body.
+	emit_signal('game_over')
 
 func _on_ArriveeBlanc_ghost_enter():
 	player.die()
+
+
+func _on_DepartBlanc_player_enter():
+	if gameManager.isDark:
+		ghostPlayer.can_get_recording = false
+		emit_signal('game_win')
+		gameManager.turnClear()

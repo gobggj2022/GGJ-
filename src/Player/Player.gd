@@ -56,8 +56,10 @@ func _on_side_update(isDark):
 	sprite = enteringSprite
 
 func die():
+	if is_game_over:
+		return
+
 	change_state(DEAD)
-	emit_signal("player_died")
 	deadEffect.play()
 	is_game_over = true
 
@@ -149,7 +151,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if not is_game_over and (collision.collider.name == "GhostPlayer" or collision.collider.name == "Trap"):
+		if collision.collider.name == "GhostPlayer" or collision.collider.name == "Trap":
 			die()
 
 func dash():
@@ -160,3 +162,8 @@ func dash():
 func _on_DashTimer_timeout():
 	change_state(RUN)
 	
+
+
+func _on_Sprite_animation_finished():
+	if state == DEAD:
+		emit_signal("player_died")

@@ -2,6 +2,8 @@ extends Node
 
 onready var _mainMenu = $Interface/MainMenu
 onready var _pauseMenu = $Interface/PauseMenu
+onready var _gameOverMenu = $Interface/GameOver
+onready var _gameWinMenu = $Interface/WinMenu
 
 var isDark = false
 
@@ -24,6 +26,10 @@ func _unhandled_input(event):
 			_pauseMenu.close()
 		get_tree().set_input_as_handled()
 
+func gameOver():
+	# get_tree().paused = true
+	_gameOverMenu.open()
+
 func _on_PauseMenu_restart_level():
 	restartCurrentLevel()
 
@@ -44,3 +50,10 @@ func toggle():
 
 func _updateStatus():
 	emit_signal('side_switch', isDark)
+
+func _on_Level_game_over():
+	gameOver()
+
+
+func _on_Level_game_win():
+	_gameWinMenu.open()
