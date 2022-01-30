@@ -7,6 +7,7 @@ onready var playButton = $ColorRect/PlayButton
 onready var creditsButton = $ColorRect/CreditsButton
 onready var exitButton = $ColorRect/ExitButton
 onready var logo = $ColorRect/LogoReverse
+onready var creditsMenu = $Credits
 
 onready var music: AudioStreamPlayer = $MusicMenu
 
@@ -56,6 +57,9 @@ func _on_ExitButton_pressed():
 
 func _on_PlayButton_pressed():
 	play()
+
+func _on_CreditsButton_pressed():
+	creditsMenu.open()
 
 
 func _on_Tween_tween_all_completed():

@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Menu/uiTheme.tres" type="Theme" id=1]
+[ext_resource path="res://src/Menu/Credits.gd" type="Script" id=2]
+
+[node name="Credits" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = 1879.0
+margin_bottom = 860.0
+color = Color( 0, 0, 0, 0.760784 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="designersTitle2" type="Label" parent="ColorRect"]
+margin_left = 301.0
+margin_top = 247.0
+margin_right = 476.0
+margin_bottom = 320.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.92549, 0.286275, 0.137255, 1 )
+text = "DESIGNERS
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Marjorie GUILLOU2" type="Label" parent="ColorRect/designersTitle2"]
+margin_left = 13.0
+margin_top = 135.0
+margin_right = 278.0
+margin_bottom = 208.0
+theme = ExtResource( 1 )
+text = "Marjorie GUILLOU
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Florian VIGNAUD" type="Label" parent="ColorRect/designersTitle2"]
+margin_left = 15.0
+margin_top = 87.0
+margin_right = 280.0
+margin_bottom = 198.0
+theme = ExtResource( 1 )
+text = "Florian VIGNAUD
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Benoît ANET" type="Label" parent="ColorRect/designersTitle2"]
+margin_left = 16.0
+margin_top = 45.0
+margin_right = 281.0
+margin_bottom = 118.0
+theme = ExtResource( 1 )
+text = "Benoit ANET
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Marie COLOGON" type="Label" parent="ColorRect/designersTitle2"]
+margin_left = 14.0
+margin_top = 182.0
+margin_right = 279.0
+margin_bottom = 255.0
+theme = ExtResource( 1 )
+text = "Marie COLOGON
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="developersTitle" type="Label" parent="ColorRect"]
+margin_left = 302.0
+margin_top = 488.0
+margin_right = 495.0
+margin_bottom = 561.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.392157, 0.764706, 0.882353, 1 )
+text = "DEVELOPERS
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Léo BOYER" type="Label" parent="ColorRect/developersTitle"]
+margin_left = 11.0
+margin_top = 97.0
+margin_right = 276.0
+margin_bottom = 170.0
+theme = ExtResource( 1 )
+text = "Léo BOYER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Killian DROULEZ" type="Label" parent="ColorRect/developersTitle"]
+margin_left = 10.0
+margin_top = 49.0
+margin_right = 275.0
+margin_bottom = 160.0
+theme = ExtResource( 1 )
+text = "Killian DROULEZ
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BACK" type="Button" parent="ColorRect"]
+margin_left = 82.0
+margin_top = 96.0
+margin_right = 162.0
+margin_bottom = 131.0
+theme = ExtResource( 1 )
+text = "BACK"
+
+[connection signal="pressed" from="ColorRect/BACK" to="." method="_on_BACK_pressed"]

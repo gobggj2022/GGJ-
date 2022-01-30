@@ -24,6 +24,7 @@ position = Vector2( 40, 275 )
 shape = SubResource( 2 )
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
+position = Vector2( 0, 3 )
 enabled = true
 cast_to = Vector2( 0, 19 )
 collision_mask = 8
