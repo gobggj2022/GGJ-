@@ -6,7 +6,8 @@ var ghostPlayer: GhostPlayer
 onready var player: Player = $Player
 
 func _on_ArriveeBlanc_player_enter():
-	get_node('/root/SideManager').turnDark()
+	get_node('/root/GameManager').turnDark()
+	print("gello")
 
 	player.saveRecord()
 	player.can_record = false

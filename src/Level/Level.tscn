@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://src/Platform/Trap.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/Platform/HighCube.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/Background/Fond2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/audio/Yadu Rajiv - miniloops-1 - 10 - Symbiosis_01.ogg" type="AudioStream" id=16]
 
 [node name="Level" type="Node2D"]
 position = Vector2( 26, -18 )
@@ -23,14 +24,13 @@ script = ExtResource( 1 )
 
 [node name="BG" parent="." instance=ExtResource( 7 )]
 position = Vector2( 58.7544, 40.203 )
+
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 54.3033, 711.146 )
-scale = Vector2( 1, 1 )
 
 [node name="WhiteBG" type="Sprite" parent="."]
 position = Vector2( 864.598, 414.45 )
 scale = Vector2( 0.800962, 0.585971 )
-texture = ExtResource( 7 )
 
 [node name="Plafond2" parent="." instance=ExtResource( 8 )]
 script = ExtResource( 10 )
@@ -101,11 +101,14 @@ scale = Vector2( 2.5, 2.5 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 pause_mode = 1
-position = Vector2( 53.4131, 659.331 )
+position = Vector2( 56.974, 679.877 )
 scale = Vector2( 0.09, 0.09 )
 motion/sync_to_physics = false
 run_speed = 250
 jump_speed = -700
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
 
 [connection signal="player_leave" from="DepartBlanc" to="." method="_on_DepartBlanc_player_leave"]
 [connection signal="player_enter" from="ArriveeBlanc" to="." method="_on_ArriveeBlanc_player_enter"]

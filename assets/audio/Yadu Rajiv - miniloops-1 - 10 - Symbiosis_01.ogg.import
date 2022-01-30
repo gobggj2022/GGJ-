@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Yadu Rajiv - miniloops-1 - 10 - Symbiosis_01.ogg-2f69a6d4fc6962409960fbc6a56c6cd5.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Yadu Rajiv - miniloops-1 - 10 - Symbiosis_01.ogg"
+dest_files=[ "res://.import/Yadu Rajiv - miniloops-1 - 10 - Symbiosis_01.ogg-2f69a6d4fc6962409960fbc6a56c6cd5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
