@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/level_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Level/SocleDepart.tscn" type="PackedScene" id=3]
 
 [node name="Level" type="Node2D"]
 
@@ -11,10 +12,18 @@ scale = Vector2( 0.2, 0.2 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 10, 10 )
 format = 1
-tile_data = PoolIntArray( -524182, -2147483631, 0, 2555904, 3, 0, 2555939, 4, 0, 2555974, -2147483644, 0 )
+tile_data = PoolIntArray( 9437280, 536870913, 0, 9437357, 536870913, 0, 10223580, 536870916, 0, 11010545, 536870916, 0, 12255289, 536870913, 0, 12386272, 536870916, 0, 13304305, 536870916, 0, 14155743, 536870916, 0, 14614721, 536870916, 0, 15598049, 536870916, 0, 15794549, 536870916, 0, 16318463, 536870916, 0, 16252963, 536870916, 0, 16252999, 536870916, 0, 16253035, 536870916, 0, 16253071, 536870916, 0, 16253157, 536870916, 0, 16253193, 536870916, 0, 16253229, 536870916, 0, 16253265, 536870916, 0, 16646553, 536870916, 0, 17629629, 536870916, 0 )
+
+[node name="DepartBlanc" parent="." instance=ExtResource( 3 )]
+position = Vector2( 58, 516 )
+scale = Vector2( 0.184406, 0.184406 )
+
+[node name="ArriveeBlanc" parent="." instance=ExtResource( 3 )]
+position = Vector2( 934, 558 )
+scale = Vector2( 0.184406, 0.184406 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 pause_mode = 1
-position = Vector2( 26, 51 )
+position = Vector2( 51, 463 )
 scale = Vector2( 0.05, 0.05 )
 motion/sync_to_physics = false
