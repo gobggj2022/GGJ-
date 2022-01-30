@@ -98,7 +98,6 @@ func get_input():
 		velocity.y += jump_speed
 	elif dash:
 		if dashTimer.time_left != 0:
-			print(dashTimer.time_left)
 			if sprite.flip_h:
 				velocity.x -= dash_speed
 			else:

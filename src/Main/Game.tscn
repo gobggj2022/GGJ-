@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/Yadu Rajiv - miniloops-1 - 10 - Symbiosis.wav" type="AudioStream" id=3]
 [ext_resource path="res://src/Menu/MainMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/tmpBg.png" type="Texture" id=5]
 [ext_resource path="res://src/Menu/PauseMenu.tscn" type="PackedScene" id=6]
@@ -25,5 +26,9 @@ texture = ExtResource( 5 )
 [node name="MainMenu" parent="Interface" instance=ExtResource( 4 )]
 
 [node name="PauseMenu" parent="Interface" instance=ExtResource( 6 )]
+rect_pivot_offset = Vector2( -481, 84 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="restart_level" from="Interface/PauseMenu" to="." method="_on_PauseMenu_restart_level"]
