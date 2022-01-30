@@ -8,6 +8,8 @@ onready var playButton = $ColorRect/PlayButton
 onready var creditsButton = $ColorRect/CreditsButton
 onready var exitButton = $ColorRect/ExitButton
 
+onready var music: AudioStreamPlayer = $MusicMenu
+
 var buttonsLeaveDuration = 0.8
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +25,9 @@ func play():
 
 
 	tween.interpolate_property(self, "modulate:a", 1.0, 0.0,
+			buttonsLeaveDuration - 0.2, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.6)
+
+	tween.interpolate_property(music, "volume_db", 0.0, -80.0,
 			buttonsLeaveDuration - 0.2, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.6)
 
 	tween.start()
@@ -48,5 +53,6 @@ func _on_PlayButton_pressed():
 
 
 func _on_Tween_tween_all_completed():
+	music.stop()
 	get_tree().paused = false
 	hide()

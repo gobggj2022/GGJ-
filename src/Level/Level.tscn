@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -15,7 +15,9 @@
 [ext_resource path="res://src/Platform/Trap.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/Platform/HighCube.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/Background/Fond2.tscn" type="PackedScene" id=15]
-[ext_resource path="res://assets/audio/Yadu Rajiv - miniloops-1 - 10 - Symbiosis_01.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/audio/music_normal.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/audio/music_reverse.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/audio/TAPE START_02.wav" type="AudioStream" id=18]
 
 [node name="Level" type="Node2D"]
 position = Vector2( 26, -18 )
@@ -101,14 +103,25 @@ scale = Vector2( 2.5, 2.5 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 pause_mode = 1
-position = Vector2( 56.974, 679.877 )
+position = Vector2( 56.974, 705.786 )
 scale = Vector2( 0.09, 0.09 )
 motion/sync_to_physics = false
 run_speed = 250
 jump_speed = -700
 
-[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+[node name="MusicNormal" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+autoplay = true
+
+[node name="MusicReverse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -80.0
+autoplay = true
+
+[node name="TransitionEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="player_leave" from="DepartBlanc" to="." method="_on_DepartBlanc_player_leave"]
 [connection signal="player_enter" from="ArriveeBlanc" to="." method="_on_ArriveeBlanc_player_enter"]
