@@ -1,18 +1,74 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/level_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Level/SocleDepart.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Platform/CubeSol.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Platform/LongPlatform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Level/Socle.gd" type="Script" id=6]
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 1 )
 
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2( -3, 32 )
-scale = Vector2( 0.2, 0.2 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 10, 10 )
-format = 1
-tile_data = PoolIntArray( 9437280, 536870913, 0, 9437357, 536870913, 0, 10223580, 536870916, 0, 11010545, 536870916, 0, 12255289, 536870913, 0, 12386272, 536870916, 0, 13304305, 536870916, 0, 14155743, 536870916, 0, 14614721, 536870916, 0, 15598049, 536870916, 0, 15794549, 536870916, 0, 16318463, 536870916, 0, 16252963, 536870916, 0, 16252999, 536870916, 0, 16253035, 536870916, 0, 16253071, 536870916, 0, 16253157, 536870916, 0, 16253193, 536870916, 0, 16253229, 536870916, 0, 16253265, 536870916, 0, 16646553, 536870916, 0, 17629629, 536870916, 0 )
+[node name="CubeSole" parent="." instance=ExtResource( 4 )]
+position = Vector2( 31, 564 )
+
+[node name="CubeSole17" parent="." instance=ExtResource( 4 )]
+position = Vector2( -33, 499 )
+
+[node name="CubeSole18" parent="." instance=ExtResource( 4 )]
+position = Vector2( -32, 446 )
+
+[node name="CubeSole19" parent="." instance=ExtResource( 4 )]
+position = Vector2( -39, 379 )
+
+[node name="CubeSole2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 104, 564 )
+
+[node name="CubeSole3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 176, 564 )
+
+[node name="CubeSole4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 246, 564 )
+
+[node name="CubeSole5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 318, 564 )
+
+[node name="CubeSole7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 490, 564 )
+
+[node name="CubeSole8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 563, 564 )
+
+[node name="CubeSole9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 635, 564 )
+
+[node name="CubeSole10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 707, 564 )
+
+[node name="CubeSole12" parent="." instance=ExtResource( 4 )]
+position = Vector2( 850, 576 )
+
+[node name="CubeSole13" parent="." instance=ExtResource( 4 )]
+position = Vector2( 922, 606 )
+
+[node name="CubeSole14" parent="." instance=ExtResource( 4 )]
+position = Vector2( 995, 544 )
+
+[node name="CubeSole15" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1026, 474 )
+
+[node name="CubeSole16" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1027, 405 )
+
+[node name="CubeSole11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 779, 550 )
+
+[node name="CubeSole6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 419, 514 )
+
+[node name="CubeSol" parent="." instance=ExtResource( 5 )]
+position = Vector2( 197, 419 )
 
 [node name="DepartBlanc" parent="." instance=ExtResource( 3 )]
 position = Vector2( 58, 516 )
@@ -21,9 +77,12 @@ scale = Vector2( 0.184406, 0.184406 )
 [node name="ArriveeBlanc" parent="." instance=ExtResource( 3 )]
 position = Vector2( 934, 558 )
 scale = Vector2( 0.184406, 0.184406 )
+script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 pause_mode = 1
 position = Vector2( 51, 463 )
 scale = Vector2( 0.05, 0.05 )
 motion/sync_to_physics = false
+
+[connection signal="player_enter" from="ArriveeBlanc" to="." method="_on_ArriveeBlanc_player_enter"]

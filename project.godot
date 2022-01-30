@@ -13,9 +13,27 @@ _global_script_classes=[ {
 "class": "GameCamera",
 "language": "GDScript",
 "path": "res://src/GameCamera.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Platform",
+"language": "GDScript",
+"path": "res://src/Platform/Platform.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/Player/Player.gd"
+}, {
+"base": "Platform",
+"class": "Socle",
+"language": "GDScript",
+"path": "res://src/Level/Socle.gd"
 } ]
 _global_script_class_icons={
-"GameCamera": ""
+"GameCamera": "",
+"Platform": "",
+"Player": "",
+"Socle": ""
 }
 
 [application]
@@ -23,6 +41,10 @@ _global_script_class_icons={
 config/name="GGJ2022"
 run/main_scene="res://src/Main/Game.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SideManager="*res://src/Main/SideManager.gd"
 
 [display]
 
