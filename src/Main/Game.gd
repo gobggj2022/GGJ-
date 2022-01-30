@@ -1,9 +1,5 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var _mainMenu = $Interface/MainMenu
 onready var _pauseMenu = $Interface/PauseMenu
 
@@ -27,11 +23,6 @@ func _unhandled_input(event):
 		else:
 			_pauseMenu.close()
 		get_tree().set_input_as_handled()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_PauseMenu_restart_level():
 	restartCurrentLevel()

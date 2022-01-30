@@ -19,7 +19,6 @@ func _ready():
 
 func _on_ArriveeBlanc_player_enter():
 	get_node('/root/GameManager').turnDark()
-	print("gello")
 
 	player.saveRecord()
 	player.can_record = false
@@ -50,3 +49,5 @@ func _on_side_update(isDark):
 	transitionEffect.play()
 
 	tween.start()
+func _on_Player_player_died():
+	pass # Replace with function body.

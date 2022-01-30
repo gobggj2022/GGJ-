@@ -1,9 +1,6 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var gameManager = get_node('/root/GameManager')
 
 signal restart_level()
 
@@ -32,4 +29,5 @@ func _on_ResumeButton_pressed():
 
 func _on_RestartButton_pressed():
 	close()
+	gameManager.turnClear()
 	emit_signal('restart_level')
