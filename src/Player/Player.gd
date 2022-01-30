@@ -24,6 +24,7 @@ var velocity = Vector2()
 var state: int
 var anim: String
 var new_anim: String
+var can_dash = true
 
 var count = 0
 #Our dictionary we store values too
@@ -59,7 +60,7 @@ func saveRecord():
 
 func do_record():
 	count += 1
-	save_data[String(count)] = [sprite.animation ,global_position, sprite.flip_h]
+	save_data[String(count)] = [sprite.animation,global_position, sprite.flip_h]
 
 func change_state(new_state):
 	if new_state != SNEAK:
@@ -103,7 +104,9 @@ func get_input():
 			else:
 				velocity.x += dash_speed
 		else:
-			dash()
+			if can_dash:
+				dash()
+				can_dash = false
 	elif down:
 		change_state(SNEAK)
 		sneakHitbox.disabled = false
@@ -127,7 +130,8 @@ func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
 	if state == JUMP and is_on_floor() and velocity.y > 0:
-			change_state(IDLE)
+		can_dash = true
+		change_state(IDLE)
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 func dash():
