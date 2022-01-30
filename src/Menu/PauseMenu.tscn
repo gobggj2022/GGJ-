@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Menu/uiTheme.tres" type="Theme" id=1]
 [ext_resource path="res://src/Menu/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/rollover.tres" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/click1.tres" type="AudioStream" id=4]
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -47,6 +49,12 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Hoversound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Clicksound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="pressed" from="ColorRect/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="ColorRect/RestartButton" to="." method="_on_RestartButton_pressed"]

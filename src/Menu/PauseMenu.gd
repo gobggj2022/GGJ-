@@ -1,4 +1,4 @@
-extends Control
+extends Menu
 
 onready var gameManager = get_node('/root/GameManager')
 

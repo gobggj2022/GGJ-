@@ -111,6 +111,7 @@ jump_speed = -700
 
 [node name="MusicNormal" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+volume_db = -6.0
 autoplay = true
 
 [node name="MusicReverse" type="AudioStreamPlayer" parent="."]

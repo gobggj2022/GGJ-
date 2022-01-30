@@ -1,5 +1,4 @@
-extends Control
-
+extends Menu
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -27,7 +26,7 @@ func play():
 	tween.interpolate_property(self, "modulate:a", 1.0, 0.0,
 			buttonsLeaveDuration - 0.2, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.6)
 
-	tween.interpolate_property(music, "volume_db", 0.0, -80.0,
+	tween.interpolate_property(music, "volume_db", music.volume_db, -80.0,
 			buttonsLeaveDuration - 0.2, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.6)
 
 	tween.start()
@@ -44,7 +43,6 @@ func exit():
 #func _process(delta):
 #	pass
 
-
 func _on_ExitButton_pressed():
 	exit()
 
@@ -56,3 +54,7 @@ func _on_Tween_tween_all_completed():
 	music.stop()
 	get_tree().paused = false
 	hide()
+
+
+func _on_PlayButton_mouse_exited():
+	pass # Replace with function body.

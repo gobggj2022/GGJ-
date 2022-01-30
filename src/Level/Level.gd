@@ -40,10 +40,12 @@ func _on_side_update(isDark):
 	var enteringMusic = musicReverse if isDark else musicNormal
 	var leavingMusic = musicNormal if isDark else musicReverse
 
-	tween.interpolate_property(enteringMusic, "volume_db", -80.0, 0.0,
+	var level = leavingMusic.volume_db
+
+	tween.interpolate_property(enteringMusic, "volume_db", -80.0, level,
 			transitionDuration, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 
-	tween.interpolate_property(leavingMusic, "volume_db", 0.0, -80.0,
+	tween.interpolate_property(leavingMusic, "volume_db", level, -80.0,
 			transitionDuration, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 
 	transitionEffect.play()
