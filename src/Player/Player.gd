@@ -50,7 +50,10 @@ func _on_side_update(isDark):
 	tween.start()
 
 	sprite = enteringSprite
-	
+
+func die():
+	change_state(DEAD)
+	emit_signal("player_died")
 
 func saveRecord():
 	var f := File.new()
@@ -151,8 +154,6 @@ func dash():
 	change_state(DASH)
 	dashTimer.wait_time = 0.2
 	dashTimer.start()
-
-	
 
 func _on_DashTimer_timeout():
 	change_state(RUN)

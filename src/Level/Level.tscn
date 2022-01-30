@@ -123,6 +123,7 @@ stream = ExtResource( 18 )
 
 [node name="Tween" type="Tween" parent="."]
 
+[connection signal="ghost_enter" from="DepartBlanc" to="." method="_on_DepartBlanc_ghost_enter"]
 [connection signal="player_leave" from="DepartBlanc" to="." method="_on_DepartBlanc_player_leave"]
 [connection signal="ghost_enter" from="ArriveeBlanc" to="." method="_on_ArriveeBlanc_ghost_enter"]
 [connection signal="player_enter" from="ArriveeBlanc" to="." method="_on_ArriveeBlanc_player_enter"]
