@@ -30,12 +30,12 @@ enabled = true
 cast_to = Vector2( 0, 19 )
 collision_mask = 8
 
-[node name="SpriteBlue" type="AnimatedSprite" parent="."]
-frames = ExtResource( 3 )
-animation = "idle"
-
 [node name="SpriteRed" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
+animation = "idle"
+
+[node name="SpriteBlue" type="AnimatedSprite" parent="."]
+frames = ExtResource( 3 )
 animation = "idle"
 
 [node name="DashTimer" type="Timer" parent="."]
