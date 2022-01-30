@@ -15,7 +15,6 @@ func _ready():
 
 
 func _on_side_update(isDark):
-	print_debug(self)
 	var enteringSprite = darkSprite if isDark else clearSprite
 	var leavingSprite = clearSprite if isDark else darkSprite
 

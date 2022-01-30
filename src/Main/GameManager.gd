@@ -4,9 +4,6 @@ var isDark = false
 
 signal side_switch(isDark)
 
-func _ready():
-	print("hey")
-
 func turnDark():
 	if (!isDark):
 		isDark = true

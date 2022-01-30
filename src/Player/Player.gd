@@ -58,17 +58,14 @@ func _on_side_update(isDark):
 func die():
 	if is_game_over:
 		return
-
 	change_state(DEAD)
-	deadEffect.play()
 	is_game_over = true
+	deadEffect.play()
 
 func saveRecord():
 	var f := File.new()
 	f.open("res://record.json", File.WRITE)
-	prints("Saving to", f.get_path_absolute())
 	f.store_string(JSON.print(save_data))
-	print(JSON.print(save_data))
 	f.close()
 
 func do_record():
@@ -151,7 +148,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.name == "GhostPlayer" or collision.collider.name == "Trap":
+		if collision.collider.name == "GhostPlayer" or collision.collider.name == "Trap" or collision.collider.name == "Trap2":
 			die()
 
 func dash():

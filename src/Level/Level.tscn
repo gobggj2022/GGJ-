@@ -57,7 +57,7 @@ position = Vector2( 1432.04, 564.651 )
 scale = Vector2( 1.53123, 2.2 )
 
 [node name="Wall-left" parent="." instance=ExtResource( 4 )]
-position = Vector2( -46.288, 438.698 )
+position = Vector2( -48.0782, 420.855 )
 rotation = -1.5708
 scale = Vector2( 1.51522, 2.2 )
 
@@ -82,7 +82,7 @@ position = Vector2( 1617.53, 525.319 )
 scale = Vector2( 0.28, 0.28 )
 
 [node name="Trap" parent="." instance=ExtResource( 13 )]
-position = Vector2( 805.745, 518.114 )
+position = Vector2( 805.744, 522.565 )
 rotation = -1.50354
 scale = Vector2( 1.25, 1.25 )
 

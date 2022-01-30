@@ -53,7 +53,6 @@ func get_reverse_recording():
 	reverse_count -= 1
 	var test = load_data.get(String(reverse_count))
 	if(test != null):
-		print(test[1])
 		sprite.play(test[0])
 		global_position = str2var("Vector2" + test[1])
 		sprite.flip_h = test[2]
