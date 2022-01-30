@@ -1,81 +1,54 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Level/SocleDepart.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Platform/CubeSol.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Platform/Sol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Platform/LongPlatform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Level/Socle.gd" type="Script" id=6]
+[ext_resource path="res://assets/bg/Illustration_sans_titre 4.png" type="Texture" id=7]
+[ext_resource path="res://assets/bg/Fond 1.png" type="Texture" id=8]
+[ext_resource path="res://assets/bg/Plafond 1.png" type="Texture" id=9]
+[ext_resource path="res://assets/bg/Décors fond 1.png" type="Texture" id=10]
+[ext_resource path="res://src/Platform/Tunnel.tscn" type="PackedScene" id=11]
 
 [node name="Level" type="Node2D"]
+position = Vector2( 26, 0 )
+scale = Vector2( 1.37566, 1.37076 )
 script = ExtResource( 1 )
 
-[node name="CubeSole" parent="." instance=ExtResource( 4 )]
-position = Vector2( 31, 564 )
+[node name="WhiteBG" type="Sprite" parent="."]
+position = Vector2( 559, 363 )
+scale = Vector2( 0.545017, 0.524281 )
+texture = ExtResource( 7 )
 
-[node name="CubeSole17" parent="." instance=ExtResource( 4 )]
-position = Vector2( -33, 499 )
+[node name="Plafond1" type="Sprite" parent="."]
+position = Vector2( 535.5, 398.75 )
+scale = Vector2( 0.452734, 0.735648 )
+texture = ExtResource( 9 )
 
-[node name="CubeSole18" parent="." instance=ExtResource( 4 )]
-position = Vector2( -32, 446 )
+[node name="Fond1" type="Sprite" parent="."]
+position = Vector2( 519.5, 233 )
+scale = Vector2( 0.421484, 0.718518 )
+texture = ExtResource( 8 )
 
-[node name="CubeSole19" parent="." instance=ExtResource( 4 )]
-position = Vector2( -39, 379 )
+[node name="DécorsFond1" type="Sprite" parent="."]
+position = Vector2( 513.5, 445 )
+scale = Vector2( 0.412891, 0.390741 )
+texture = ExtResource( 10 )
 
-[node name="CubeSole2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 104, 564 )
+[node name="Sol" parent="." instance=ExtResource( 4 )]
+position = Vector2( 529, 640 )
 
-[node name="CubeSole3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 176, 564 )
-
-[node name="CubeSole4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 246, 564 )
-
-[node name="CubeSole5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 318, 564 )
-
-[node name="CubeSole7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 490, 564 )
-
-[node name="CubeSole8" parent="." instance=ExtResource( 4 )]
-position = Vector2( 563, 564 )
-
-[node name="CubeSole9" parent="." instance=ExtResource( 4 )]
-position = Vector2( 635, 564 )
-
-[node name="CubeSole10" parent="." instance=ExtResource( 4 )]
-position = Vector2( 707, 564 )
-
-[node name="CubeSole12" parent="." instance=ExtResource( 4 )]
-position = Vector2( 850, 576 )
-
-[node name="CubeSole13" parent="." instance=ExtResource( 4 )]
-position = Vector2( 922, 606 )
-
-[node name="CubeSole14" parent="." instance=ExtResource( 4 )]
-position = Vector2( 995, 544 )
-
-[node name="CubeSole15" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1026, 474 )
-
-[node name="CubeSole16" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1027, 405 )
-
-[node name="CubeSole11" parent="." instance=ExtResource( 4 )]
-position = Vector2( 779, 550 )
-
-[node name="CubeSole6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 419, 514 )
-
-[node name="CubeSol" parent="." instance=ExtResource( 5 )]
-position = Vector2( 197, 419 )
+[node name="LongPlatform" parent="." instance=ExtResource( 5 )]
+position = Vector2( 701, 527 )
 
 [node name="DepartBlanc" parent="." instance=ExtResource( 3 )]
-position = Vector2( 58, 516 )
-scale = Vector2( 0.184406, 0.184406 )
+position = Vector2( 59, 604 )
+scale = Vector2( 0.25, 0.25 )
 
 [node name="ArriveeBlanc" parent="." instance=ExtResource( 3 )]
-position = Vector2( 934, 558 )
+position = Vector2( -199, 485 )
 scale = Vector2( 0.184406, 0.184406 )
 script = ExtResource( 6 )
 
@@ -84,5 +57,9 @@ pause_mode = 1
 position = Vector2( 51, 463 )
 scale = Vector2( 0.05, 0.05 )
 motion/sync_to_physics = false
+
+[node name="Tunnel" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1084, 421 )
+scale = Vector2( 2.5, 2.5 )
 
 [connection signal="player_enter" from="ArriveeBlanc" to="." method="_on_ArriveeBlanc_player_enter"]

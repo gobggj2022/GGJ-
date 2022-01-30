@@ -9,22 +9,22 @@ position = Vector2( 26, 519 )
 scale = Vector2( 0.131189, 0.131189 )
 script = ExtResource( 2 )
 
-[node name="ClearSprite" type="Sprite" parent="."]
-position = Vector2( -7.62256, 7.62256 )
-texture = ExtResource( 1 )
+[node name="StepCollision" type="Area2D" parent="."]
 
-[node name="DarkSprite" type="Sprite" parent="."]
-position = Vector2( -30.4904, -7.62256 )
-texture = ExtResource( 3 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StepCollision"]
+polygon = PoolVector2Array( -30.4904, -38.113, 60.9807, -53.3582, -22.8678, -68.6033, -121.961, -53.3582 )
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="."]
 position = Vector2( -7.62259, 7.62256 )
 polygon = PoolVector2Array( -152.452, 68.6033, 121.961, 68.6033, 68.6033, -60.9807, -22.8678, -45.7356, -114.339, -60.9807 )
 
-[node name="StepCollision" type="Area2D" parent="."]
+[node name="DarkSprite" type="Sprite" parent="."]
+position = Vector2( -30.4904, -7.62256 )
+texture = ExtResource( 3 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StepCollision"]
-polygon = PoolVector2Array( -30.4904, -38.113, 60.9807, -53.3582, -22.8678, -68.6033, -121.961, -53.3582 )
+[node name="ClearSprite" type="Sprite" parent="."]
+position = Vector2( -7.62256, 7.62256 )
+texture = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
 

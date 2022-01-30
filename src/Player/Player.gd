@@ -37,6 +37,8 @@ func _ready():
 func _on_side_update(isDark):
 	var enteringSprite = redSprite if isDark else blueSprite
 	var leavingSprite = blueSprite if isDark else redSprite
+	
+	enteringSprite.flip_h = leavingSprite.flip_h
 
 	tween.interpolate_property(enteringSprite, "modulate:a", 0.0, 1.0,
 			transitionDuration, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
@@ -57,7 +59,6 @@ func saveRecord():
 
 func do_record():
 	count += 1
-	print_debug(sprite)
 	save_data[String(count)] = [sprite.animation ,global_position, sprite.flip_h]
 
 func change_state(new_state):

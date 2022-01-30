@@ -8,19 +8,19 @@ func _ready():
 	print("hey")
 
 func turnDark():
-    if (!isDark):
-        isDark = true
-        _updateStatus()
+	if (!isDark):
+		isDark = true
+		_updateStatus()
 
 func turnClear():
-    if (isDark):
-        isDark = false
-        _updateStatus()
+	if (isDark):
+		isDark = false
+		_updateStatus()
 
 func toggle():
-    if (isDark):
-        isDark = !isDark
-        _updateStatus()
+	if (isDark):
+		isDark = !isDark
+		_updateStatus()
 
 func _updateStatus():
 	emit_signal('side_switch', isDark)
