@@ -140,7 +140,10 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.name == "GhostPlayer" || "Trap":
+		if collision.collider.name == "GhostPlayer":
+			change_state(DEAD)
+			emit_signal("player_died")
+		if collision.collider.name == "Trap":
 			change_state(DEAD)
 			emit_signal("player_died")
 
