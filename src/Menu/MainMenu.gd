@@ -6,6 +6,7 @@ extends Menu
 onready var playButton = $ColorRect/PlayButton
 onready var creditsButton = $ColorRect/CreditsButton
 onready var exitButton = $ColorRect/ExitButton
+onready var logo = $ColorRect/LogoReverse
 
 onready var music: AudioStreamPlayer = $MusicMenu
 
@@ -18,6 +19,7 @@ func _ready():
 
 func play():
 	var tween = $Tween
+	spriteLeave(logo, tween, 0.4)
 	buttonLeave(playButton, tween, 0.2)
 	buttonLeave(creditsButton, tween, 0.1)
 	buttonLeave(exitButton, tween)
@@ -36,7 +38,13 @@ func buttonLeave(button, tween, delay = 0):
 	var targetPosition = initialPosition
 	targetPosition.x = -button.rect_size.x - 50
 	tween.interpolate_property(button, 'rect_position', initialPosition, targetPosition, buttonsLeaveDuration, Tween.TRANS_QUART, Tween.EASE_IN, delay)
-	
+
+func spriteLeave(sprite, tween, delay = 0):
+	var initialPosition = sprite.position
+	var targetPosition = initialPosition
+	targetPosition.x = -sprite.get_rect().size.x - 50
+	tween.interpolate_property(sprite, 'position', initialPosition, targetPosition, buttonsLeaveDuration, Tween.TRANS_QUART, Tween.EASE_IN, delay)
+				
 func exit():
 	get_tree().quit()
 # Called every frame. 'delta' is the elapsed time since the previous frame.

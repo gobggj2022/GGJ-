@@ -58,6 +58,8 @@ func _on_side_update(isDark):
 func die():
 	change_state(DEAD)
 	emit_signal("player_died")
+	deadEffect.play()
+	is_game_over = true
 
 func saveRecord():
 	var f := File.new()
@@ -148,10 +150,7 @@ func _physics_process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if not is_game_over and (collision.collider.name == "GhostPlayer" or collision.collider.name == "Trap"):
-			change_state(DEAD)
-			emit_signal("player_died")
-			deadEffect.play()
-			is_game_over = true
+			die()
 
 func dash():
 	change_state(DASH)

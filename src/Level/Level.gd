@@ -38,8 +38,6 @@ func _on_ArriveeBlanc_player_enter():
 func _on_ArriveeBlanc_player_leave():
 	ghostPlayer.can_get_recording = true
 
-func _on_ArriveeBlanc_ghost_enter():
-	player.die()
 
 
 func _on_DepartBlanc_player_leave():
@@ -65,3 +63,6 @@ func _on_side_update(isDark):
 	tween.start()
 func _on_Player_player_died():
 	pass # Replace with function body.
+
+func _on_ArriveeBlanc_ghost_enter():
+	player.die()
