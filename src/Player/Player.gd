@@ -104,7 +104,7 @@ func get_input():
 			else:
 				velocity.x += dash_speed
 		else:
-			if can_dash:
+			if can_dash or is_on_floor():
 				dash()
 				can_dash = false
 	elif down:
