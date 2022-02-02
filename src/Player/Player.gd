@@ -12,7 +12,7 @@ onready var blueSprite = $SpriteBlue
 onready var dashTimer: Timer = $DashTimer
 onready var sneakHitbox: CollisionShape2D = get_node("SneakCollisionShape2D")
 onready var normalHitbox: CollisionPolygon2D = get_node("CollisionPolygon2D")
-onready var gameManager = get_node("/root/GameManager")
+onready var gameManager = get_node("/root/Game")
 onready var tween = $Tween
 
 onready var deadEffect = $DeadEffect

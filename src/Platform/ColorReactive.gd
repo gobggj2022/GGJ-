@@ -5,7 +5,7 @@ onready var clearSprite = $ClearSprite
 onready var darkSprite = $DarkSprite
 onready var tween = $Tween
 
-onready var gameManager = get_node("/root/GameManager")
+onready var gameManager = get_node("/root/Game")
 
 const transitionDuration = 0.2
 

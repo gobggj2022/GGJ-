@@ -1,6 +1,6 @@
 extends Menu
 
-onready var gameManager = get_node('/root/GameManager')
+onready var gameManager = get_node('/root/Game')
 
 signal restart_level()
 

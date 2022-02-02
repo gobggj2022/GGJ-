@@ -1,15 +1,18 @@
 extends Node
 
-onready var _mainMenu = $Interface/MainMenu
-onready var _pauseMenu = $Interface/PauseMenu
-onready var _gameOverMenu = $Interface/GameOver
-onready var _gameWinMenu = $Interface/WinMenu
+onready var _mainMenu = get_node("/root/Game/Interface/MainMenu")
+onready var _pauseMenu = get_node("/root/Game/Interface/PauseMenu")
+onready var _gameOverMenu = get_node("/root/Game/Interface/OverMenu")
+onready var _gameWinMenu = get_node("/root/Game/Interface/WinMenu")
+
+# Old viewport : 1920x900
 
 var isDark = false
 
 signal side_switch(isDark)
 
 func restartCurrentLevel():
+# warning-ignore:return_value_discarded
 	$Level.get_tree().reload_current_scene()
 
 func _unhandled_input(event):
@@ -17,6 +20,7 @@ func _unhandled_input(event):
 	# when the game is paused, so this code keeps running.
 	# To see that, select GlobalControls, and scroll down to the Pause category
 	# in the inspector.
+	print(_gameOverMenu)
 	if event.is_action_pressed("toggle_pause"):
 		var tree = get_tree()
 		tree.paused = not tree.paused

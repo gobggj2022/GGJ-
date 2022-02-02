@@ -9,7 +9,7 @@ var ghostPlayer: GhostPlayer
 var transitionDuration = 1.0
 
 onready var player: Player = $Player
-onready var gameManager = get_node('/root/GameManager')
+onready var gameManager = get_node('/root/Game')
 
 onready var musicNormal = $MusicNormal
 onready var musicReverse = $MusicReverse
@@ -28,7 +28,7 @@ func _on_ArriveeBlanc_player_enter():
 		return
 
 	playerArrivedSecondSocle = true
-	get_node('/root/GameManager').turnDark()
+	get_node('/root/Game').turnDark()
 
 	player.saveRecord()
 	player.can_record = false
