@@ -27,28 +27,28 @@ animations = [ {
 "name": "idle",
 "speed": 3.94
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "sneak",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "run",
 "speed": 9.0
-}, {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "dash",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 15 ) ],
 "loop": false,
 "name": "death",
 "speed": 16.0
 }, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "sneak",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 6 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 18 ) ],
 "loop": false,
 "name": "jump",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "dash",
+"speed": 5.0
 } ]

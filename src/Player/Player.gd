@@ -157,7 +157,10 @@ func dash():
 	dashTimer.start()
 
 func _on_DashTimer_timeout():
-	change_state(RUN)
+	if state == DEAD:
+		return
+	else:
+		change_state(RUN)
 	
 
 

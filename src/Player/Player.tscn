@@ -16,8 +16,8 @@ run_speed = 150
 jump_speed = -600
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 40, -18 )
-polygon = PoolVector2Array( -304, 598, 276, 610, 283, -174, 57, -526, -287, -156 )
+position = Vector2( 41, -29 )
+polygon = PoolVector2Array( -304, 598, 276, 610, 283, -174, 57, -400, -287, -156 )
 
 [node name="SneakCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 40, 275 )

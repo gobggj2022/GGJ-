@@ -91,12 +91,13 @@ position = Vector2( 494.19, 607.628 )
 scale = Vector2( 1.25, 1.25 )
 
 [node name="Trap2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 341.844, 503.88 )
-rotation = 1.57657
+position = Vector2( 341.844, 487.787 )
+rotation = 1.55905
 scale = Vector2( 1.25, 1.25 )
 
 [node name="CubePlatform2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 272.407, 520.852 )
+position = Vector2( 272.407, 505.651 )
+rotation = -0.00824786
 scale = Vector2( 1.25, 1.32162 )
 
 [node name="Tunnel" parent="." instance=ExtResource( 11 )]
