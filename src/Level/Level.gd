@@ -9,6 +9,8 @@ var ghostPlayer: GhostPlayer
 var transitionDuration = 1.0
 
 onready var player: Player = $Player
+onready var camera: GameCamera = $GameCamera
+
 onready var gameManager = get_node('/root/Game')
 
 onready var musicNormal = $MusicNormal
@@ -17,11 +19,25 @@ onready var transitionEffect = $TransitionEffect
 
 onready var tween = $Tween
 
-func _ready():
-	gameManager.connect('side_switch', self, '_on_side_update')
+var staticCameraPosition
+var staticCameraZoom
+var followingCameraZoom = Vector2(1, 1)
+
+var cameraFollowingPlayer = false
 
 var playerArrivedSecondSocle = false # Go trip
 var playerReturnedFirstSocle = false # Back trip
+
+
+func _ready():
+	gameManager.connect('side_switch', self, '_on_side_update')
+	staticCameraPosition = camera.position
+	staticCameraZoom = camera.zoom
+
+
+func _process(delta):
+	if cameraFollowingPlayer:
+		camera.setTargetPosition(player.position)
 
 func _on_ArriveeBlanc_player_enter():
 	if playerArrivedSecondSocle:
@@ -38,6 +54,8 @@ func _on_ArriveeBlanc_player_enter():
 	ghostPlayer.scale = Vector2(0.09,0.09)
 	add_child(ghostPlayer)
 
+	setFollowPlayer(false)
+
 func _on_ArriveeBlanc_player_leave():
 	ghostPlayer.can_get_recording = true
 
@@ -45,6 +63,7 @@ func _on_ArriveeBlanc_player_leave():
 
 func _on_DepartBlanc_player_leave():
 	player.can_record = true
+	setFollowPlayer(true)
 
 func _on_side_update(isDark):
 	var enteringMusic = musicReverse if isDark else musicNormal
@@ -73,3 +92,14 @@ func _on_DepartBlanc_player_enter():
 		ghostPlayer.can_get_recording = false
 		emit_signal('game_win')
 		gameManager.turnClear()
+
+func setFollowPlayer(set):
+	cameraFollowingPlayer = set
+	if (set):
+		camera.targetZoom = followingCameraZoom
+	else:
+		camera.targetZoom = staticCameraZoom
+		camera.setTargetPosition(staticCameraPosition)
+
+func _on_VictoryArea_body_exited(body:Node):
+	setFollowPlayer(true)

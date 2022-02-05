@@ -8,13 +8,14 @@ script = ExtResource( 2 )
 
 [node name="DarkSprite" type="Sprite" parent="."]
 modulate = Color( 0.215686, 0.207843, 0.207843, 1 )
-position = Vector2( 864.598, 414.45 )
-scale = Vector2( 0.800962, 0.585971 )
+scale = Vector2( 0.428811, 0.345324 )
 texture = ExtResource( 1 )
+centered = false
 
 [node name="ClearSprite" type="Sprite" parent="."]
-position = Vector2( 864.598, 414.45 )
-scale = Vector2( 0.800962, 0.585971 )
+position = Vector2( 1.90735e-06, 0 )
+scale = Vector2( 0.428811, 0.345324 )
 texture = ExtResource( 1 )
+centered = false
 
 [node name="Tween" type="Tween" parent="."]
