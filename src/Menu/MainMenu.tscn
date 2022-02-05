@@ -26,10 +26,10 @@ __meta__ = {
 }
 
 [node name="PlayButton" type="Button" parent="ColorRect"]
-margin_left = 192.0
-margin_top = 342.0
-margin_right = 285.0
-margin_bottom = 385.0
+margin_left = 147.0
+margin_top = 269.0
+margin_right = 240.0
+margin_bottom = 312.0
 mouse_default_cursor_shape = 2
 theme = ExtResource( 1 )
 text = "PLAY"
@@ -39,10 +39,10 @@ __meta__ = {
 }
 
 [node name="CreditsButton" type="Button" parent="ColorRect"]
-margin_left = 191.0
-margin_top = 393.0
-margin_right = 322.0
-margin_bottom = 436.0
+margin_left = 146.0
+margin_top = 320.0
+margin_right = 277.0
+margin_bottom = 363.0
 rect_scale = Vector2( 1, 0.989928 )
 theme = ExtResource( 1 )
 text = "CREDITS"
@@ -52,10 +52,10 @@ __meta__ = {
 }
 
 [node name="ExitButton" type="Button" parent="ColorRect"]
-margin_left = 192.0
-margin_top = 446.0
-margin_right = 323.0
-margin_bottom = 489.0
+margin_left = 147.0
+margin_top = 373.0
+margin_right = 278.0
+margin_bottom = 416.0
 rect_scale = Vector2( 1, 0.989928 )
 theme = ExtResource( 1 )
 text = "EXIT"
@@ -65,7 +65,7 @@ __meta__ = {
 }
 
 [node name="LogoReverse" type="Sprite" parent="ColorRect"]
-position = Vector2( 320.561, 212.875 )
+position = Vector2( 275.561, 139.875 )
 scale = Vector2( 0.443889, 0.443889 )
 texture = ExtResource( 6 )
 

@@ -1,9 +1,9 @@
 extends Node
 
-onready var _mainMenu = get_node("/root/Game/Interface/MainMenu")
-onready var _pauseMenu = get_node("/root/Game/Interface/PauseMenu")
-onready var _gameOverMenu = get_node("/root/Game/Interface/OverMenu")
-onready var _gameWinMenu = get_node("/root/Game/Interface/WinMenu")
+onready var _mainMenu = $Interface/MainMenu
+onready var _pauseMenu = $Interface/PauseMenu
+onready var _gameOverMenu = $Interface/GameOver
+onready var _gameWinMenu = $Interface/WinMenu
 
 # Old viewport : 1920x900
 
