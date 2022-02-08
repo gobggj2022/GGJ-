@@ -21,7 +21,7 @@
 [ext_resource path="res://src/GameCamera.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 270.626, 217.99 )
+extents = Vector2( 129.529, 208.609 )
 
 [node name="Level" type="Node2D"]
 position = Vector2( 26, -18 )
@@ -146,7 +146,7 @@ script = ExtResource( 19 )
 position = Vector2( 1367.38, 579.816 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryArea"]
-position = Vector2( 53.4132, -44.6699 )
+position = Vector2( 194.51, -35.2889 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
