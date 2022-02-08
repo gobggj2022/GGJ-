@@ -50,8 +50,8 @@ func _on_ArriveeBlanc_player_enter():
 	player.can_record = false
 
 	ghostPlayer = ghostPlayerNode.instance()
-	ghostPlayer.global_position = $StartPosition.position
-	ghostPlayer.scale = Vector2(0.09,0.09)
+	ghostPlayer.set_deferred("global_position", $StartPosition.position)
+	ghostPlayer.set_deferred("scale", Vector2(0.09,0.09))
 	add_child(ghostPlayer)
 
 	setFollowPlayer(false)
